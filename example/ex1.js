@@ -153,13 +153,13 @@ let connection = mysql.createConnection(
 // });
 
 // books table 실습문제 8 : 책 타이틀에 'the'가 들어간 책은 몇 권인지 조회하시오.
-// let select_query = 'select count(*) from books where title like "%the%"'
+// let select_query = 'select count(*) as cnt from books where title like "%the%"' // as cnt!!!
 // connection.query(select_query, [], function(error, results, fields){
 //     console.log(results);
 // });
 
 // books table 실습문제 9 : 년도별로, 책이 몇 권씩 출간되었는지, 해당 년도와 책 수를 조회하시오.
-// let select_query = 'select released_year, count(*) from books group by released_year order by released_year'
+// let select_query = 'select released_year, count(*) as cnt from books group by released_year order by released_year'
 // connection.query(select_query, [], function(error, results, fields){
 //     console.log(results);
 // });

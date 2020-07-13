@@ -14,7 +14,8 @@
 
 -- use my_test;
 
--- select * from memo;
+use my_test;
+select * from memo;
 
 -- insert into memo (title, comment) values ("1","2");
 
@@ -76,40 +77,41 @@ select count(*) from users where email like "%yahoo%";
 
 -- # 실습 깃헙 Node Mysql 실습 3 - users 테이블
 
--- create table books
--- 	(
--- 		book_id int not null auto_increment,
--- 		title varchar(100),
---         author_fname varchar(100),
---         author_lname varchar(100),
---         released_year int,
---         stock_quantity int,
---         pages int,
---         primary key(book_id)
---     );
+create table books
+	(
+		book_id int not null auto_increment,
+		title varchar(100),
+        author_fname varchar(100),
+        author_lname varchar(100),
+        released_year int,
+        stock_quantity int,
+        pages int,
+        primary key(book_id)
+    );
 
--- select * from books;
--- -- 실습문제 1
--- select concat(author_fname, " ", author_lname) as full_name from books;
--- -- 실습문제 2
--- select concat(substring(title, 1, 10), "...") as "short title" from books;
--- -- 실습문제 3
--- select concat(title, " was released in ", released_year) as "blurb" from books;
--- -- 실습문제 4
--- select title, char_length(title) as "character count" from books;
--- -- 실습문제 5
--- insert into books
--- values (default, "10% Happier", "Dan", "Harris", 2014, 29, 256),
--- 		(default, "fake_book", "Freida", "Harris", 2001, 287, 428),
---         (default, "Lincoln In The Bardo", "George", "Saunders", 2017, 1000, 367);
--- -- 실습문제 6
--- select title, released_year from books order by released_year desc limit 5;
--- -- 실습문제 7
--- select title, pages from books order by pages desc limit 1;
--- -- 실습문제 8
--- select count(*) from books where title like "%the%";
--- -- 실습문제 9
--- select released_year, count(*) from books group by released_year order by released_year;
--- -- 실습문제 10
--- select released_year as year, count(*) as "# books", avg(pages) as "avg pages"
--- from books group by year order by year;
+select * from books;
+-- 실습문제 1
+select concat(author_fname, " ", author_lname) as full_name from books;
+-- 실습문제 2
+select concat(substring(title, 1, 10), "...") as "short title" from books;
+-- 실습문제 3
+select concat(title, " was released in ", released_year) as "blurb" from books;
+-- 실습문제 4 ★이거 중요★
+select title, char_length(title) as "character count" from books;
+-- 실습문제 5
+insert into books
+values (default, "10% Happier", "Dan", "Harris", 2014, 29, 256),
+		(default, "fake_book", "Freida", "Harris", 2001, 287, 428),
+        (default, "Lincoln In The Bardo", "George", "Saunders", 2017, 1000, 367);
+-- 실습문제 6
+select title, released_year from books order by released_year desc limit 5;
+-- 실습문제 7
+select title, pages from books order by pages desc limit 1;
+-- 실습문제 8
+select count(*) as cnt from books where title like "%the%";
+-- 실습문제 9
+select released_year, count(*) as cnt from books group by released_year order by released_year;
+-- 실습문제 10
+select released_year as year, count(*) as "# books", avg(pages) as "avg pages"
+from books group by year order by year;
+
